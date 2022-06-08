@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package pb.orgsvc.v1;
+
+option go_package = "pb/orgsvc/v1";
+
+service ModelSvc {
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+  rpc Get(GetRequest) returns (GetResponse) {}
+  rpc List(EmptyRequest) returns (ListResponse) {}
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc Delete(DeleteRequest) returns (EmptyResponse) {}
+}
+
+message EmptyRequest {
+
+}
+
+message EmptyResponse {
+
+}
+
+message DeleteRequest {
+  string id = 1;
+}
+
+message UpdateRequest {
+  string id = 1;
+  string adminID = 2;
+  string name = 3;
+}
+
+message UpdateResponse {
+  string id = 1;
+  string adminID = 2;
+  string name = 3;
+}
+
+message ListResponse {
+  repeated ListResponseData data = 1;
+}
+
+message ListResponseData {
+  string id = 1;
+  string adminID = 2;
+  string name = 3;
+}
+
+message GetRequest {
+  string id = 1;
+}
+
+message GetResponse {
+  string id = 1;
+  string adminID = 2;
+  string name = 3;
+}
+
+message CreateRequest {
+  string name = 1;
+}
+
+message CreateResponse {
+  string id = 1;
+  string adminID = 2;
+  string name = 3;
+}
