@@ -4,7 +4,7 @@ package pb.orgsvc.v1;
 
 option go_package = "pb/orgsvc/v1";
 
-service ModelSvc {
+service OrgSvc {
   rpc Create(CreateRequest) returns (CreateResponse) {}
   rpc Get(GetRequest) returns (GetResponse) {}
   rpc List(EmptyRequest) returns (ListResponse) {}

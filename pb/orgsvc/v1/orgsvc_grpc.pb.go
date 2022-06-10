@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// ModelSvcClient is the client API for ModelSvc service.
+// OrgSvcClient is the client API for OrgSvc service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ModelSvcClient interface {
+type OrgSvcClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	List(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*ListResponse, error)
@@ -29,219 +29,219 @@ type ModelSvcClient interface {
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 }
 
-type modelSvcClient struct {
+type orgSvcClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewModelSvcClient(cc grpc.ClientConnInterface) ModelSvcClient {
-	return &modelSvcClient{cc}
+func NewOrgSvcClient(cc grpc.ClientConnInterface) OrgSvcClient {
+	return &orgSvcClient{cc}
 }
 
-func (c *modelSvcClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+func (c *orgSvcClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.ModelSvc/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.OrgSvc/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *modelSvcClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+func (c *orgSvcClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.ModelSvc/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.OrgSvc/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *modelSvcClient) List(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+func (c *orgSvcClient) List(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*ListResponse, error) {
 	out := new(ListResponse)
-	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.ModelSvc/List", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.OrgSvc/List", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *modelSvcClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+func (c *orgSvcClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
 	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.ModelSvc/Update", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.OrgSvc/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *modelSvcClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *orgSvcClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
-	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.ModelSvc/Delete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.orgsvc.v1.OrgSvc/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ModelSvcServer is the server API for ModelSvc service.
-// All implementations must embed UnimplementedModelSvcServer
+// OrgSvcServer is the server API for OrgSvc service.
+// All implementations must embed UnimplementedOrgSvcServer
 // for forward compatibility
-type ModelSvcServer interface {
+type OrgSvcServer interface {
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	List(context.Context, *EmptyRequest) (*ListResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*EmptyResponse, error)
-	mustEmbedUnimplementedModelSvcServer()
+	mustEmbedUnimplementedOrgSvcServer()
 }
 
-// UnimplementedModelSvcServer must be embedded to have forward compatible implementations.
-type UnimplementedModelSvcServer struct {
+// UnimplementedOrgSvcServer must be embedded to have forward compatible implementations.
+type UnimplementedOrgSvcServer struct {
 }
 
-func (UnimplementedModelSvcServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+func (UnimplementedOrgSvcServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedModelSvcServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+func (UnimplementedOrgSvcServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedModelSvcServer) List(context.Context, *EmptyRequest) (*ListResponse, error) {
+func (UnimplementedOrgSvcServer) List(context.Context, *EmptyRequest) (*ListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedModelSvcServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+func (UnimplementedOrgSvcServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedModelSvcServer) Delete(context.Context, *DeleteRequest) (*EmptyResponse, error) {
+func (UnimplementedOrgSvcServer) Delete(context.Context, *DeleteRequest) (*EmptyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (UnimplementedModelSvcServer) mustEmbedUnimplementedModelSvcServer() {}
+func (UnimplementedOrgSvcServer) mustEmbedUnimplementedOrgSvcServer() {}
 
-// UnsafeModelSvcServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ModelSvcServer will
+// UnsafeOrgSvcServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OrgSvcServer will
 // result in compilation errors.
-type UnsafeModelSvcServer interface {
-	mustEmbedUnimplementedModelSvcServer()
+type UnsafeOrgSvcServer interface {
+	mustEmbedUnimplementedOrgSvcServer()
 }
 
-func RegisterModelSvcServer(s grpc.ServiceRegistrar, srv ModelSvcServer) {
-	s.RegisterService(&ModelSvc_ServiceDesc, srv)
+func RegisterOrgSvcServer(s grpc.ServiceRegistrar, srv OrgSvcServer) {
+	s.RegisterService(&OrgSvc_ServiceDesc, srv)
 }
 
-func _ModelSvc_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrgSvc_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ModelSvcServer).Create(ctx, in)
+		return srv.(OrgSvcServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.orgsvc.v1.ModelSvc/Create",
+		FullMethod: "/pb.orgsvc.v1.OrgSvc/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModelSvcServer).Create(ctx, req.(*CreateRequest))
+		return srv.(OrgSvcServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ModelSvc_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrgSvc_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ModelSvcServer).Get(ctx, in)
+		return srv.(OrgSvcServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.orgsvc.v1.ModelSvc/Get",
+		FullMethod: "/pb.orgsvc.v1.OrgSvc/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModelSvcServer).Get(ctx, req.(*GetRequest))
+		return srv.(OrgSvcServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ModelSvc_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrgSvc_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EmptyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ModelSvcServer).List(ctx, in)
+		return srv.(OrgSvcServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.orgsvc.v1.ModelSvc/List",
+		FullMethod: "/pb.orgsvc.v1.OrgSvc/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModelSvcServer).List(ctx, req.(*EmptyRequest))
+		return srv.(OrgSvcServer).List(ctx, req.(*EmptyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ModelSvc_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrgSvc_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ModelSvcServer).Update(ctx, in)
+		return srv.(OrgSvcServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.orgsvc.v1.ModelSvc/Update",
+		FullMethod: "/pb.orgsvc.v1.OrgSvc/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModelSvcServer).Update(ctx, req.(*UpdateRequest))
+		return srv.(OrgSvcServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ModelSvc_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrgSvc_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ModelSvcServer).Delete(ctx, in)
+		return srv.(OrgSvcServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.orgsvc.v1.ModelSvc/Delete",
+		FullMethod: "/pb.orgsvc.v1.OrgSvc/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModelSvcServer).Delete(ctx, req.(*DeleteRequest))
+		return srv.(OrgSvcServer).Delete(ctx, req.(*DeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ModelSvc_ServiceDesc is the grpc.ServiceDesc for ModelSvc service.
+// OrgSvc_ServiceDesc is the grpc.ServiceDesc for OrgSvc service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ModelSvc_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.orgsvc.v1.ModelSvc",
-	HandlerType: (*ModelSvcServer)(nil),
+var OrgSvc_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.orgsvc.v1.OrgSvc",
+	HandlerType: (*OrgSvcServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Create",
-			Handler:    _ModelSvc_Create_Handler,
+			Handler:    _OrgSvc_Create_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _ModelSvc_Get_Handler,
+			Handler:    _OrgSvc_Get_Handler,
 		},
 		{
 			MethodName: "List",
-			Handler:    _ModelSvc_List_Handler,
+			Handler:    _OrgSvc_List_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _ModelSvc_Update_Handler,
+			Handler:    _OrgSvc_Update_Handler,
 		},
 		{
 			MethodName: "Delete",
-			Handler:    _ModelSvc_Delete_Handler,
+			Handler:    _OrgSvc_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
