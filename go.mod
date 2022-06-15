@@ -3,6 +3,7 @@ module github.com/stkr89/ats_common
 go 1.18
 
 require (
+	github.com/google/uuid v1.1.2
 	google.golang.org/grpc v1.47.0
 	google.golang.org/protobuf v1.28.0
 )
